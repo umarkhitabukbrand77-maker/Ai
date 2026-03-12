@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Content Creator</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+width:420px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border:none;
+border-radius:6px;
+}
+
+select{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border-radius:6px;
+border:none;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#22c55e;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.output{
+margin-top:20px;
+background:#020617;
+padding:15px;
+border-radius:8px;
+min-height:100px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Content Creator</h1>
+
+<input id="topic" placeholder="Enter your topic">
+
+<select id="type">
+<option value="youtube">YouTube Script</option>
+<option value="tiktok">TikTok Idea</option>
+<option value="caption">Caption</option>
+<option value="thumbnail">Thumbnail Title</option>
+</select>
+
+<button onclick="generate()">Generate</button>
+
+<div class="output" id="result"></div>
+
+</div>
+
+<script>
+
+function generate(){
+
+let topic = document.getElementById("topic").value
+let type = document.getElementById("type").value
+let output = ""
+
+if(type=="youtube"){
+output = "YouTube Script Idea:\n\n" +
+"Hook: You won't believe this about " + topic + "!\n\n" +
+"Intro: Today we are exploring " + topic + ".\n\n" +
+"Main Points:\n1. What it is\n2. Why it matters\n3. Tips people don't know\n\nEnding: Subscribe for more videos!"
+}
+
+if(type=="tiktok"){
+output = "TikTok Idea:\n\n" +
+"Start with a shocking fact about " + topic + ".\n" +
+"Show quick clips explaining it.\n" +
+"End with 'Follow for more secrets!'"
+}
+
+if(type=="caption"){
+output = "Caption Idea:\n\n" +
+"🔥 Everyone is talking about " + topic + "!\n" +
+"Did you know this?\n\n#trend #viral #contentcreator"
+}
+
+if(type=="thumbnail"){
+output = "Thumbnail Title Ideas:\n\n" +
+"1. The Truth About " + topic + "\n" +
+"2. Nobody Told You This!\n" +
+"3. This Changes Everything"
+}
+
+document.getElementById("result").innerText = output
+
+}
+
+</script>
+
+</body>
+</html>
